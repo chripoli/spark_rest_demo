@@ -1,0 +1,14 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/wiremock/spark_demo"
+    },
+    "response": {
+        "status": 200,
+        "body": "{{randomValue length=3 type='NUMERIC'}}",
+        "headers": {
+            "Content-Type": "text/plain"
+        },
+        "transformers": ["response-template"]
+    }
+}

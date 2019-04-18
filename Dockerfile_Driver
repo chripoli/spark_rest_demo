@@ -1,0 +1,16 @@
+FROM alpine:latest
+
+RUN apk --update add openjdk8-jre
+
+RUN mkdir /apps
+COPY spark_demo/target/spark_demo-1.0-SNAPSHOT-allinone.jar /apps
+RUN ln /apps/spark_demo-1.0-SNAPSHOT-allinone.jar /apps/spark_demo.jar
+
+ENV SPARK_MASTER="spark://master:7077"
+ENV JARS="/apps/spark_demo.jar"
+ENV WIREMOCK_URL="http://wiremock:8080/wiremock/spark_demo"
+
+COPY driver_script/startup.sh /apps
+RUN chmod 700 /apps/startup.sh
+
+ENTRYPOINT /bin/sh -c /apps/startup.sh
