@@ -14,3 +14,5 @@ In order to run the program, do the following:
 
 * Build the Maven project found under the spark_demo folder with `mvn package`
 * Afterwards, build and execute the docker compose ensemble with `docker-compose up`
+
+**Note**: The docker image which runs the spark is not optimized. After being build it is ~1GB in size. This should be adapted in the future.
