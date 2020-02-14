@@ -7,7 +7,7 @@ RUN mkdir -p ${BASE_DIR}
 RUN apt-get update && apt-get install -y openjdk-8-jre wget
 
 WORKDIR ${BASE_DIR}
-RUN wget http://apache.lauf-forum.at/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz
+RUN wget http://archive.apache.org/dist/spark/spark-2.4.1/spark-2.4.1-bin-hadoop2.7.tgz
 RUN tar xzvf spark-2.4.1-bin-hadoop2.7.tgz
 RUN rm spark-2.4.1-bin-hadoop2.7.tgz
 RUN ln -s spark-2.4.1-bin-hadoop2.7 spark
